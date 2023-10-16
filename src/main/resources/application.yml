@@ -1,0 +1,9 @@
+spring:
+  main:
+    lazy-initialization: true
+    log-startup-info: false
+
+report-portal:
+  baseUri: https://rp.epam.com
+  username: ${RP_USER}
+  password: ${RP_PASSWORD}

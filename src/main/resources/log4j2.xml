@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Appenders>
+    <Console name="STDOUT">
+      <PatternLayout
+        pattern="%highlight{[%-5level] %d{HH:mm:ss}: %msg%n%throwable}{ERROR=Bright Red, WARN=Bright Yellow, INFO=Bright Cyan, DEBUG=Bright Green, TRACE=White}"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Logger name="org.springframework" level="WARN"/>
+    <logger name="jdk.event.security" level="WARN"/>
+    <Root level="DEBUG">
+      <AppenderRef ref="STDOUT" level="${sys:log4j2.console.level:-DEBUG}"/>
+    </Root>
+  </Loggers>
+</Configuration>
