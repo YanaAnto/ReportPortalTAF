@@ -20,4 +20,3 @@ public class RestClientConfig {
             .accept(ContentType.JSON);
     }
 }
-
