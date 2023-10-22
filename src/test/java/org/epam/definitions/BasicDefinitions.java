@@ -14,14 +14,19 @@ public class BasicDefinitions {
     private final LoginPage loginPage;
     private final ReportPortalProperties rpProperties;
 
-    @When("open report portal main page")
+    @When("login with default user")
     public void openReportPortalMainPage() {
-        loginPage.open();
+        log.info("Login with user: {}", rpProperties.getUsername());
         loginPage.login(rpProperties.getUsername(), rpProperties.getPassword());
+    }
+
+    @When("open report portal main page")
+    public void openReportPortal() {
+        loginPage.open();
     }
 
     @Then("title is visible")
     public void verifyTitleIsVisible() {
-        // some code
+        // todo: add check that title is visible
     }
 }
