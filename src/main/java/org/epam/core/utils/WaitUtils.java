@@ -15,13 +15,11 @@ public class WaitUtils {
     public static final int ONE_SECOND = 1;
     public static final int THIRTY_SECONDS = 30;
 
-    public static ConditionFactory kindlyWait(final long seconds) {
-        return await().atMost(seconds, SECONDS)
-            .pollInterval(Duration.ofSeconds(ONE_SECOND))
-            .pollInSameThread();
+    public static ConditionFactory kindlyWait(int seconds) {
+        return kindlyWait(seconds, SECONDS);
     }
 
-    public static ConditionFactory kindlyWait(final int duration, final TimeUnit timeUnit) {
+    public static ConditionFactory kindlyWait(int duration, TimeUnit timeUnit) {
         return await().atMost(duration, timeUnit)
             .pollInterval(Duration.ofSeconds(ONE_SECOND))
             .pollInSameThread();

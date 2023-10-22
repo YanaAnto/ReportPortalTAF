@@ -3,17 +3,18 @@ package org.epam.core.ui.page.report_portal;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static io.cucumber.spring.CucumberTestContext.SCOPE_CUCUMBER_GLUE;
+import static org.epam.core.ui.page.report_portal.LoginPage.Endpoint.LOGIN;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import lombok.extern.slf4j.Slf4j;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.epam.core.props.ReportPortalProperties;
 import org.epam.core.ui.UiBase;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Slf4j
 @Component
 @Scope(SCOPE_CUCUMBER_GLUE)
 public class LoginPage extends UiBase {
@@ -28,7 +29,7 @@ public class LoginPage extends UiBase {
 
     public void open() {
         Configuration.baseUrl = rpProperties.getBaseUri();
-        Selenide.open("/ui/#login");
+        Selenide.open(LOGIN.getName());
     }
 
     public void login(String username, String password) {
@@ -37,5 +38,13 @@ public class LoginPage extends UiBase {
         PASSWORD_INPUT.shouldBe(visible).clear();
         PASSWORD_INPUT.sendKeys(password);
         LOGIN_BUTTON.click();
+    }
+
+    @AllArgsConstructor
+    public enum Endpoint {
+        LOGIN("/ui/#login");
+
+        @Getter
+        private final String name;
     }
 }
