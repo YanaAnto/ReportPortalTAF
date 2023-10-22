@@ -8,8 +8,10 @@ import static org.epam.core.ui.page.report_portal.LoginPage.Endpoint.LOGIN;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.epam.core.props.ReportPortalProperties;
 import org.epam.core.ui.UiBase;
 import org.springframework.context.annotation.Scope;
@@ -41,6 +43,7 @@ public class LoginPage extends UiBase {
     }
 
     @AllArgsConstructor
+    @NoArgsConstructor(access = AccessLevel.NONE)
     public enum Endpoint {
         LOGIN("/ui/#login");
 
