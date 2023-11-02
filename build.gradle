@@ -128,5 +128,5 @@ task runCucumberTests(type: JavaExec) {
 
     systemProperties.putIfAbsent("cucumber.filter.tags", "not @ignore")
     args = ['--plugin', 'me.jvt.cucumber.report.PrettyReports:target/cucumber',
-            '--threads', '1']
+            '--threads', '2']
 }

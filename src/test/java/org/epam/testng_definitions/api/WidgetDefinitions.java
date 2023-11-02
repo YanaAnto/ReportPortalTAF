@@ -63,6 +63,7 @@ public class WidgetDefinitions extends BasicDefinitions {
     @SneakyThrows
     @When("update widget with field {} and value {}")
     public void updateWidgetFieldFieldWithValueValue(String field, String value) {
+        Thread.sleep(1000);
         String jsonData = scenarioContext.get(CREATE_WIDGET_REQUEST);
         JSONObject json = new JSONObject(jsonData);
         json.put(field, value);
