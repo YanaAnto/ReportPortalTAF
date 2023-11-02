@@ -7,6 +7,7 @@ buildscript {
         selenide_version = "6.17.2"
         lombok_version = "1.18.28"
         spring_version = "6.0.9"
+        testng_version = "7.14.0"
     }
 }
 
@@ -32,10 +33,15 @@ dependencies {
     // JUnit
     testRuntimeOnly 'junit:junit:4.13.2'
 
+    //TestNG
+    implementation 'org.testng:testng:7.8.0'
+
     // Cucumber
     implementation "io.cucumber:cucumber-java:$cucumber_version"
     implementation "io.cucumber:cucumber-spring:$cucumber_version"
     implementation "io.cucumber:cucumber-junit:$cucumber_version"
+    implementation "io.cucumber:cucumber-testng:$testng_version"
+
 
     // Reporting
     implementation 'me.jvt.cucumber:reporting-plugin:7.11.0'
@@ -89,10 +95,6 @@ dependencies {
     implementation "com.codeborne:selenide:$selenide_version"
 }
 
-test {
-    useJUnitPlatform()
-}
-
 def systemPropertySetup = {
     systemProperties System.getProperties()
     systemProperty 'log4j2.console.level', 'INFO'
@@ -104,7 +106,7 @@ def cucumberSetup = {
 
     systemProperties.putIfAbsent("cucumber.execution.order", "lexical")
     systemProperties.putIfAbsent("cucumber.features", "classpath:features")
-    systemProperties.putIfAbsent("cucumber.glue", "org.epam")
+    systemProperties.putIfAbsent("cucumber.glue", "org.epam.definitions")
     systemProperties.putIfAbsent("cucumber.plugin", "pretty," +
             "junit:${buildDir}/reports/junit/TEST-cucumber.xml," +
             "json:${buildDir}/reports/cucumberReport.json")
@@ -125,5 +127,6 @@ task runCucumberTests(type: JavaExec) {
     configure cucumberSetup
 
     systemProperties.putIfAbsent("cucumber.filter.tags", "not @ignore")
-    args = ['--plugin', 'me.jvt.cucumber.report.PrettyReports:target/cucumber']
+    args = ['--plugin', 'me.jvt.cucumber.report.PrettyReports:target/cucumber',
+            '--threads', '2']
 }

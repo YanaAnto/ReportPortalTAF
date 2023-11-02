@@ -1,0 +1,15 @@
+{
+  "contentParameters": {
+    "contentFields": [
+      "string"
+    ],
+    "itemsCount": 400,
+    "widgetOptions": {}
+  },
+  "description": "string",
+  "filterIds": [
+    134550
+  ],
+  "name": "widgetName",
+  "widgetType": "overallStatistics"
+}

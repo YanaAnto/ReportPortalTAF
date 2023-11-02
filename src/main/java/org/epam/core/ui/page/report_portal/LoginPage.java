@@ -2,10 +2,8 @@ package org.epam.core.ui.page.report_portal;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
-import static io.cucumber.spring.CucumberTestContext.SCOPE_CUCUMBER_GLUE;
 import static org.epam.core.ui.page.report_portal.LoginPage.Endpoint.LOGIN;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import lombok.AccessLevel;
@@ -14,11 +12,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.epam.core.props.ReportPortalProperties;
 import org.epam.core.ui.UiBase;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope(SCOPE_CUCUMBER_GLUE)
 public class LoginPage extends UiBase {
 
     private static final SelenideElement LOGIN_INPUT = $("input[name='login']");
@@ -30,8 +26,11 @@ public class LoginPage extends UiBase {
     }
 
     public void open() {
-        Configuration.baseUrl = rpProperties.getBaseUri();
         Selenide.open(LOGIN.getName());
+    }
+
+    public void isOpened() {
+        LOGIN_INPUT.shouldBe(visible);
     }
 
     public void login(String username, String password) {

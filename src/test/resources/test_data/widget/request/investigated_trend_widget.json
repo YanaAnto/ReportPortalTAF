@@ -1,0 +1,15 @@
+{
+  "contentParameters": {
+    "contentFields": [
+      "string"
+    ],
+    "itemsCount": 100,
+    "widgetOptions": {}
+  },
+  "description": "string",
+  "filterIds": [
+    134564
+  ],
+  "name": "widgetName",
+  "widgetType": "investigatedTrend"
+}
