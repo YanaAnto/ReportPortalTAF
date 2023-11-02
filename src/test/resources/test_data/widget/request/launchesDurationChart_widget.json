@@ -1,0 +1,15 @@
+{
+  "contentParameters": {
+    "contentFields": [
+      "string"
+    ],
+    "itemsCount": 600,
+    "widgetOptions": {}
+  },
+  "description": "string",
+  "filterIds": [
+    134550
+  ],
+  "name": "widgetName",
+  "widgetType": "launchesDurationChart"
+}

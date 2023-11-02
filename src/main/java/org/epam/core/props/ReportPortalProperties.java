@@ -12,4 +12,6 @@ public class ReportPortalProperties {
     private String baseUri;
     private String username;
     private String password;
+    private String token;
+    private String projectName;
 }

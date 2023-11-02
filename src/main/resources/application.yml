@@ -2,3 +2,5 @@ report-portal:
   baseUri: https://rp.epam.com
   username: ${RP_USER}
   password: ${RP_PASSWORD}
+  token: ${RP_API_AUTH_TOKEN}
+  projectName: yana_antaniuk_personal

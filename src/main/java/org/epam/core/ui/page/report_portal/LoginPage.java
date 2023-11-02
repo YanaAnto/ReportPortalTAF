@@ -5,7 +5,6 @@ import static com.codeborne.selenide.Selenide.$;
 import static io.cucumber.spring.CucumberTestContext.SCOPE_CUCUMBER_GLUE;
 import static org.epam.core.ui.page.report_portal.LoginPage.Endpoint.LOGIN;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import lombok.AccessLevel;
@@ -30,8 +29,11 @@ public class LoginPage extends UiBase {
     }
 
     public void open() {
-        Configuration.baseUrl = rpProperties.getBaseUri();
         Selenide.open(LOGIN.getName());
+    }
+
+    public void isOpened() {
+        LOGIN_INPUT.shouldBe(visible);
     }
 
     public void login(String username, String password) {

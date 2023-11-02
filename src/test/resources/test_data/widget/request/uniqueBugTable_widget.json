@@ -1,0 +1,15 @@
+{
+  "contentParameters": {
+    "contentFields": [
+      "string1"
+    ],
+    "itemsCount": 1,
+    "widgetOptions": {}
+  },
+  "description": "string",
+  "filterIds": [
+    134550
+  ],
+  "name": "widgetName",
+  "widgetType": "uniqueBugTable"
+}
